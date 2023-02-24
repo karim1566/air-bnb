@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 import axios from "axios";
 import {
@@ -38,7 +39,8 @@ export default function SignInScreen({ setToken }) {
       }
 
       if (response.data.token) {
-        setToken(response.data.token);
+        setToken(response.data.token, response.data._id);
+        await AsyncStorage.setItem("id", response.data.id);
       }
     } catch (error) {
       console.log(error);

@@ -26,6 +26,7 @@ export default function App() {
       await AsyncStorage.setItem("userToken", token);
     } else {
       await AsyncStorage.removeItem("userToken");
+      await AsyncStorage.removeItem("id");
     }
 
     setUserToken(token);
@@ -122,18 +123,28 @@ export default function App() {
                 </Tab.Screen>
 
                 <Tab.Screen name="Around Me">
-                  {() => {
-                    <Stack.Navigator name="Around Me">
+                  {() => (
+                    <Stack.Navigator>
                       <Stack.Screen
-                        name="Around Me"
+                        name="AroundMe"
                         options={{
                           title: "Around Me",
                         }}
                       >
                         {() => <RoomScreen setToken={setToken} />}
                       </Stack.Screen>
-                    </Stack.Navigator>;
-                  }}
+                    </Stack.Navigator>
+                  )}
+                </Tab.Screen>
+
+                <Tab.Screen name="My Profil">
+                  {() => (
+                    <Stack.Navigator>
+                      <Stack.Screen name="Profil">
+                        {() => <ProfileScreen />}
+                      </Stack.Screen>
+                    </Stack.Navigator>
+                  )}
                 </Tab.Screen>
 
                 <Tab.Screen

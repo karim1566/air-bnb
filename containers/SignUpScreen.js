@@ -1,6 +1,7 @@
 import { Button, Text, TextInput, View, StyleSheet, Image } from "react-native";
 import axios from "axios";
 import { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // IMAGE
 import logo from "../assets/logo.png";

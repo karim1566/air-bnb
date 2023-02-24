@@ -6,6 +6,7 @@ import axios from "axios";
 import { FontAwesome } from "@expo/vector-icons";
 import { ActivityIndicator } from "react-native-paper";
 import MapView, { Marker } from "react-native-maps";
+import * as Location from "expo-location";
 
 export default function Room() {
   const route = useRoute();
